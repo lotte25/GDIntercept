@@ -17,11 +17,11 @@ matjson::Value matjson::Serialize<DynamicEnumValue>::to_json(const DynamicEnumVa
 }
 
 DynamicEnumValue matjson::Serialize<DynamicEnumValue>::from_json(const matjson::Value& json) {
-    return DynamicEnumValue(json.as_string());
+    return DynamicEnumValue(json.asString());
 }
 
 bool matjson::Serialize<DynamicEnumValue>::is_json(const matjson::Value& json) {
-    return json.is_string();
+    return json.isString();
 }
 
 std::unordered_map<std::string, std::vector<std::function<void()>>> DynamicEnum::loaders;
