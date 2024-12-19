@@ -13,11 +13,11 @@ DynamicEnumValue::DynamicEnumValue(const std::string& value) : value(value) { }
 DynamicEnumValue::DynamicEnumValue(const DynamicEnumValue& other) : value(other.value) { }
 
 matjson::Value matjson::Serialize<DynamicEnumValue>::toJson(const DynamicEnumValue& value) {
-    return value.value;
+    return Ok(value.value);
 }
 
 Result<DynamicEnumValue> matjson::Serialize<DynamicEnumValue>::fromJson(const matjson::Value& json) {
-    return DynamicEnumValue(json.asString());
+    return Ok(DynamicEnumValue(json.asString()));
 }
 
 std::unordered_map<std::string, std::vector<std::function<void()>>> DynamicEnum::loaders;
@@ -30,7 +30,7 @@ Result<std::shared_ptr<SettingV3>> DynamicEnum::parse(const std::string& key, co
     root.needs("save-value").into(res->m_saveValue);
     root.checkUnknownKeys();
 
-    return root.ok(res);
+    return root.ok(std::static_pointer_cast<SettingV3>(res));
 }
 
 void DynamicEnum::reloadDynamicEnums(const std::string& sprSettingKey) {
