@@ -48,7 +48,7 @@ namespace proxy {
     template<typename T> requires std::is_base_of_v<ProxyEvent, T>
     class ProxyFilter : public geode::EventFilter<T> {
     public:
-        geode::ListenerResult handle(geode::utils::MiniFunction<geode::ListenerResult(T*)> callback, T* event) {
+        geode::ListenerResult handle(geode::utils::std::function<geode::ListenerResult(T*)> callback, T* event) {
             const HttpInfo::URL url = event->getRequest().getURL();
 
             if ((m_urlParts.empty() || std::any_of(m_urlParts.begin(), m_urlParts.end(), [url](std::string part) {
