@@ -35,11 +35,10 @@
   "dependencies": [
     {
       "id": "geode.custom-keybinds",
-      "version": "1.6.4",
+      "version": "1.10.1",
       "importance": "required",
       "platforms": [
         "win",
-        "android64"
       ]
     }
   ],
