@@ -17,9 +17,8 @@ struct DynamicEnumValue {
 
 template<>
 struct matjson::Serialize<DynamicEnumValue> {
-    static matjson::Value to_json(const DynamicEnumValue& value);
-    static DynamicEnumValue from_json(const matjson::Value& json);
-    static bool is_json(const matjson::Value& json);
+    static matjson::Value toJson(const DynamicEnumValue& value);
+    static Result<DynamicEnumValue> fromJson(const matjson::Value& json);
 };
 
 class DynamicEnum : public SettingBaseValueV3<DynamicEnumValue> {
