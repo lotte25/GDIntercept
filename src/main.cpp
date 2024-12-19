@@ -1,4 +1,4 @@
-#include <Geode/loader/SettingEvent.hpp>
+#include <Geode/loader/Setting.hpp>
 #include "include.hpp"
 #include "nodes/InterceptPopup.hpp"
 #include "settings/DynamicEnum.hpp"
