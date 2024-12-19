@@ -17,7 +17,7 @@ matjson::Value matjson::Serialize<DynamicEnumValue>::toJson(const DynamicEnumVal
 }
 
 Result<DynamicEnumValue> matjson::Serialize<DynamicEnumValue>::fromJson(const matjson::Value& json) {
-    return DynamicEnumValue(json.asString().unwrap());
+    return Ok(DynamicEnumValue(json.asString().unwrap()));
 }
 
 std::unordered_map<std::string, std::vector<std::function<void()>>> DynamicEnum::loaders;
