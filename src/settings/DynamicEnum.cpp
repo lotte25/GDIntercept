@@ -13,7 +13,7 @@ DynamicEnumValue::DynamicEnumValue(const std::string& value) : value(value) { }
 DynamicEnumValue::DynamicEnumValue(const DynamicEnumValue& other) : value(other.value) { }
 
 matjson::Value matjson::Serialize<DynamicEnumValue>::toJson(const DynamicEnumValue& value) {
-    return Ok(value.value);
+    return value.value;
 }
 
 Result<DynamicEnumValue> matjson::Serialize<DynamicEnumValue>::fromJson(const matjson::Value& json) {
